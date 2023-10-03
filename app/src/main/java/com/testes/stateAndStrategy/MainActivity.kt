@@ -1,6 +1,7 @@
 package com.testes.stateAndStrategy
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.testes.stateAndStrategy.databinding.ActivityMainBinding
 import com.testes.stateAndStrategy.states.InterTrip
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
             binding
         )
     }
+
     //
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,10 +35,23 @@ class MainActivity : AppCompatActivity() {
             StartTrip(
             "Comece",
             onClick = {
-                reloadButton(InterTrip("Encerrar", onClick = { initalState() }))
+                reloadButton(InterTrip("Continuar", onClick = {
+                    goToStopTrip()
+                }))
             }
         ))
     }
+
+    private fun goToStopTrip() {
+        reloadButton(
+            StopTrip(
+                "Encerrar"
+            ) {
+                initalState()
+            }
+        )
+    }
+
     //
     private fun reloadButton(layoutState: LayoutState) {
         state.refreshScreen(layoutState)
