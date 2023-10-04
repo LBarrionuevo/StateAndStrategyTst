@@ -46,15 +46,6 @@ class MainActivity3 : AppCompatActivity() {
         state.refreshScreen(binding = binding)
     }
 
-//    private fun refreshScreen(label: String?, onClick: () -> Unit){
-//        with(binding){
-//            button.text = label.orEmpty()
-//            button.setOnClickListener {
-//                onClick.invoke()
-//            }
-//        }
-//    }
-
     private fun goToStopTrip() {
         handleState(
             StopTrip {
