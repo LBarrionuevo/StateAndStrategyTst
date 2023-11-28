@@ -15,12 +15,6 @@ class MainActivity : AppCompatActivity() {
     val binding by lazy{
         ActivityMainBinding.inflate(layoutInflater)
     }
-    val state by lazy{
-        StrategyExample(
-            binding
-        )
-    }
-
     //
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     //
     private fun initalState() {
         //
-        state.refreshScreen(
+        reloadButton(
             StartTrip(
             "Comece",
             onClick = {
@@ -51,9 +45,9 @@ class MainActivity : AppCompatActivity() {
             }
         )
     }
-
     //
     private fun reloadButton(layoutState: LayoutState) {
-        state.refreshScreen(layoutState)
+        binding.button.text = layoutState.label
+        binding.button.setOnClickListener(layoutState.onClick)
     }
 }

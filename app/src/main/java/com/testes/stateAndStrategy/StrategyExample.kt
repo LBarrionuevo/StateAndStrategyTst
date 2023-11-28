@@ -7,7 +7,5 @@ class StrategyExample(
     val binding: ActivityMainBinding,
 ) {
 
-    fun refreshScreen(stateStrategy: LayoutState){
-        stateStrategy.setLabelsAndAction(binding)
-    }
+
 }
